@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include 'global/partials/__head.html' %}
+</head>
+<body>
+
+    {% include 'global/partials/__header.html' %}
+    
+    <main class="content">
+        {% block content %}{% endblock content %}
+    </main>
+
+
+    <script type="text/javascript">
+        const toggleMenuOpen = () => {
+            document.body.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
