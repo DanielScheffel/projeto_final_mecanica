@@ -13,6 +13,7 @@ urlpatterns = [
 
     # crud cliente
     path('cliente/create/', views.registerCliente, name='create'),
+    path('cliente/<int:cliente_id>/update/', views.updateCliente, name='update'),
 
     # crud veiculo
     path('veiculo/create/', views.registerVeiculo, name='createVeiculo'),
