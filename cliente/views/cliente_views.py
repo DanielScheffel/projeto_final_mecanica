@@ -42,13 +42,13 @@ def veiculo(request):
 
 def cardCliente(request, cliente_id):
     cliente = get_object_or_404(Cliente, pk=cliente_id)
-    veiculo = get_object_or_404(Veiculo, cliente=cliente)
+    veiculos = Veiculo.objects.filter(cliente=cliente)
 
     site_title = f'{cliente.nome} {cliente.sobrenome} - '
 
     context = {
         'cliente': cliente,
-        'veiculo': veiculo,
+        'veiculos': veiculos,
         'site_title': site_title
     }
 

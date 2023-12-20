@@ -15,7 +15,7 @@ def registerCliente(request):
 
         if form.is_valid():
             cliente = form.save()
-            return redirect('cliente:create', cliente_id=cliente.pk)
+            return redirect('cliente:cliente')
         
         return render(
             request,
@@ -73,11 +73,10 @@ def delete(request, cliente_id):
 
     confirmation = request.POST.get('confirmation', 'no')
 
-    veiculos = Veiculo.objects.filter(cliente=cliente)
-    veiculos.delete()
-
     if confirmation == 'yes':
         cliente.delete()
+        # veiculos = Veiculo.objects.filter(cliente=cliente)
+        # veiculos.delete()
         return redirect('cliente:cliente')
     
     return render(

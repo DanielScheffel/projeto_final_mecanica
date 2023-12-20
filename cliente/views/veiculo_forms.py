@@ -47,7 +47,7 @@ def updateVeiculo(request, veiculo_id):
 
         if form.is_valid():
             form.save()
-            return redirect('cliente:updateVeiculo', veiculo_id=veiculo.pk)
+            return redirect('cliente:veiculo')
         
         return render(
             request,

@@ -184,12 +184,22 @@ h2 {
 .close-btn {
   border: none;
   width: 15rem;
-  height: 25px;
+  height: 35px;
   background-color: #032539;
+  border-radius: 4px;
 }
 
 .btn-ordem .add-link {
   text-decoration: none;
+}
+
+.add-link{
+  color: #f4f4f9;
+}
+
+.btn-add{
+  text-decoration: none;
+  color: #f4f4f9;
 }
 
 .cliente {
@@ -241,4 +251,12 @@ h2 {
 
 .btn-delete {
   background: tomato;
+  width: 15rem;
+  height: 35px;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-delete:hover {
+  background: rgb(228, 65, 37);
 }

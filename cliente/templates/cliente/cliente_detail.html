@@ -10,17 +10,19 @@
         <p><b>ID:</b> {{ cliente.id }}</p>
         <p><b>Telefone:</b> {{ cliente.telefone }}</p>
         <p><b>Endereço:</b> {{ cliente.endereco }}</p>
-        <p><b>Placa:</b> {{ veiculo.placa }}</p>
-        <p><b>Modelo:</b> {{ veiculo.modelo }}</p>
-        <p><b>Chassi:</b> {{ veiculo.chassi }}</p>
-        <p><b>Descrição:</b> {{ veiculo.descricao }}</p>
+        {% for veiculo in veiculos %}
+            <p><b>Placa:</b> {{ veiculo.placa }}</p>
+            <p><b>Modelo:</b> {{ veiculo.modelo }}</p>
+            <p><b>Chassi:</b> {{ veiculo.chassi }}</p>
+            <p><b>Descrição:</b> {{ veiculo.descricao }}</p>
+        {% endfor %}
 
         <div class="cliente-links">
             <button type="button" class="btn-update">
                 <a class="btn-link" href="{% url "cliente:update" cliente.id %}">Atualizar Cliente</a>
             </button>
             <button type="button" class="btn-update">
-                <a class="btn-link" href="{% url "cliente:updateVeiculo" veiculo.id %}">Atualizar Veículo</a>
+                <a class="btn-link" href="#">Atualizar Veículo</a>
             </button>
             <button type="button" class="btn-volta">
                 <a class="btn-link" href="{% url "cliente:cliente" %}">Voltar</a>
@@ -31,9 +33,9 @@
 
                 {% if confirmation == 'no' %}
                 <input type="hidden" name="confirmation" value="yes" />
-                <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+                <button class="btn-link btn-delete" type="submit">Confirma?</button>
                 {% else %}
-                <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+                <button class="btn-link btn-delete" type="submit">Delete</button>
                 {% endif %}
             
             </form>
