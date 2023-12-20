@@ -17,4 +17,5 @@ urlpatterns = [
 
     # crud veiculo
     path('veiculo/create/', views.registerVeiculo, name='createVeiculo'),
+    path('veiculo/<int:veiculo_id>/update/', views.updateVeiculo, name='updateVeiculo'),
 ]
