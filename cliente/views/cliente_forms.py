@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from cliente.forms import ClienteForm
-from cliente.models import Cliente
+from cliente.models import Cliente, Veiculo
 
 def registerCliente(request):
     form_action = reverse('cliente:create')
@@ -64,4 +64,27 @@ def updateCliente(request, cliente_id):
         request,
         'cliente/cliente_create.html',
         context
+    )
+
+def delete(request, cliente_id):
+    cliente = get_object_or_404(
+        Cliente, pk=cliente_id
+    )
+
+    confirmation = request.POST.get('confirmation', 'no')
+
+    veiculos = Veiculo.objects.filter(cliente=cliente)
+    veiculos.delete()
+
+    if confirmation == 'yes':
+        cliente.delete()
+        return redirect('cliente:cliente')
+    
+    return render(
+        request,
+        'cliente/cliente_detail.html',
+        {
+            'cliente': cliente,
+            'confirmation': confirmation
+        }
     )

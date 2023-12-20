@@ -29,7 +29,7 @@
 
                 <tr class="table-row">
                     <td class="table-cel">
-                        <a href="#" class="table-link">{{ cliente.id }}</a>
+                        <a href="{% url "cliente:cardCliente" cliente.id %}" class="table-link">{{ cliente.id }}</a>
                     </td>
                     <td class="table-cel"> {{ cliente.nome }} </td>
                     <td class="table-cel"> {{ cliente.sobrenome }} </td>

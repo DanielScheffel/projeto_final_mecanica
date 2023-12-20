@@ -191,3 +191,54 @@ h2 {
 .btn-ordem .add-link {
   text-decoration: none;
 }
+
+.cliente {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+}
+
+.cliente-name{
+  font-size: 48px;
+  margin-bottom: 1rem;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.cliente-links {
+  display: flex;
+  gap: 12px;
+  margin: 2rem;
+}
+
+.btn-update {
+  width: 15rem;
+  height: 35px;
+  border: none;
+  background-color: #032539;
+  border-radius: 4px;
+}
+
+.btn-link{
+  text-decoration: none;
+  color: #f4f4f9;
+}
+
+.btn-update:hover {
+  background-color: #1c768f;
+}
+
+.btn-volta {
+  width: 15rem;
+  height: 35px;
+  border: none;
+  background-color: #1c768f;
+  border-radius: 4px;
+}
+
+.btn-volta:hover {
+  background-color: #032539;
+}
+
+.btn-delete {
+  background: tomato;
+}

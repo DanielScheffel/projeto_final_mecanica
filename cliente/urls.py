@@ -12,8 +12,10 @@ urlpatterns = [
     path('lista/veiculo/', views.veiculo, name='veiculo'),
 
     # crud cliente
+    path('cliente/<int:cliente_id>/detail/', views.cardCliente, name='cardCliente'),
     path('cliente/create/', views.registerCliente, name='create'),
     path('cliente/<int:cliente_id>/update/', views.updateCliente, name='update'),
+    path('cliente/<int:cliente_id>/delete/', views.delete, name='delete'),
 
     # crud veiculo
     path('veiculo/create/', views.registerVeiculo, name='createVeiculo'),

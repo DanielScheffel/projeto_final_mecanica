@@ -1,0 +1,44 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+
+    <div class="cliente">
+        <h1 class="cliente-name">
+            {{ cliente.nome }} {{ cliente.sobrenome }}
+        </h1>
+
+        <p><b>ID:</b> {{ cliente.id }}</p>
+        <p><b>Telefone:</b> {{ cliente.telefone }}</p>
+        <p><b>Endereço:</b> {{ cliente.endereco }}</p>
+        <p><b>Placa:</b> {{ veiculo.placa }}</p>
+        <p><b>Modelo:</b> {{ veiculo.modelo }}</p>
+        <p><b>Chassi:</b> {{ veiculo.chassi }}</p>
+        <p><b>Descrição:</b> {{ veiculo.descricao }}</p>
+
+        <div class="cliente-links">
+            <button type="button" class="btn-update">
+                <a class="btn-link" href="{% url "cliente:update" cliente.id %}">Atualizar Cliente</a>
+            </button>
+            <button type="button" class="btn-update">
+                <a class="btn-link" href="{% url "cliente:updateVeiculo" veiculo.id %}">Atualizar Veículo</a>
+            </button>
+            <button type="button" class="btn-volta">
+                <a class="btn-link" href="{% url "cliente:cliente" %}">Voltar</a>
+            </button>
+
+            <form action="{% url "cliente:delete" cliente.id %}" method="POST">
+                {% csrf_token %}
+
+                {% if confirmation == 'no' %}
+                <input type="hidden" name="confirmation" value="yes" />
+                <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+                {% else %}
+                <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+                {% endif %}
+            
+            </form>
+        </div>
+
+    </div>
+
+{% endblock content %}
