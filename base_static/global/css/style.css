@@ -175,3 +175,19 @@ h2 {
   filter: brightness(80%);
   box-shadow: 0 0 5px #000;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-btn {
+  border: none;
+  width: 15rem;
+  height: 25px;
+  background-color: #032539;
+}
+
+.btn-ordem .add-link {
+  text-decoration: none;
+}

@@ -5,7 +5,11 @@
         <div class="table-title">
             <h1 class="title">Clientes</h1>
 
-            <button type="button" href="{% url "cliente:create" %}" class="btn-ordem">Adicionar Cliente</button>
+            <button type="button" class="btn-ordem">
+                <a class="add-link" href="{% url "cliente:create" %}">
+                    Adicionar Cliente
+                </a>
+            </button>
         </div>
 
         <table class="oficina-table">

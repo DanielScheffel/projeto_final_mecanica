@@ -3,7 +3,14 @@
 {% block content %}
   <div class="form-wrapper">
 
-    <h2>Veículo</h2>
+    <div class="header">
+      <h2>Cadastro Vaículo</h2>
+      <button class="close-btn" type="button">
+        <a href="{% url "cliente:cliente" %}">
+          <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+      </button>
+    </div>
     
     <form 
       action="{{ form_action }}"
