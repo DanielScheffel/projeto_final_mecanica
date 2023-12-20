@@ -1,0 +1,42 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="response-table">
+        <div class="table-title">
+            <h1 class="title">Veículos</h1>
+
+            <button type="button" href="{% url "cliente:createVeiculo" %}" class="btn-ordem">Adicionar Veículo</button>
+        </div>
+
+        <table class="oficina-table">
+
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Placa</th>
+                    <th class="table-header">Modelo</th>
+                    <th class="table-header">Chassi</th>
+                    <th class="table-header">Descrição</th>
+                    <th class="table-header">Dono</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for veiculo in veiculos %}
+
+                <tr class="table-row">
+                    <td class="table-cel">
+                        <a href="#" class="table-link">{{ veiculo.id }}</a>
+                    </td>
+                    <td class="table-cel"> {{ veiculo.placa }} </td>
+                    <td class="table-cel"> {{ veiculo.modelo }} </td>
+                    <td class="table-cel"> {{ veiculo.chassi }} </td>
+                    <td class="table-cel"> {{ veiculo.descricao }} </td>
+                    <td class="table-cel"> {{ veiculo.cliente }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock content %}

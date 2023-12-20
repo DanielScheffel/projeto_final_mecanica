@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,500;0,700;0,800;1,700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+
+.navbar-collapse .navbar-nav .nav-item a {
+    color: #ffffff;
+}
+
+.content {
+    max-width: 90rem;
+    margin: calc( 1.5rem * 2) auto;
+    padding: 2rem;
+    background: #fdfffc;
+    box-shadow: 2px 2px 5px #000;
+    border-radius: 4px;
+}
+
+.response-table{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 48px;
+  padding: .9rem;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 900;
+  color: #01a5b1;
+}
+
+.oficina-table {
+  width: 100%;
+  min-width: 60rem;
+  border-collapse: collapse;
+}
+
+.table-row {
+  text-align: left;
+  text-overflow: ellipsis;
+  transition: background-color 300ms ease-in-out;
+}
+
+.table-row-header {
+  background: #586f7c;
+  color: #ffffff;
+}
+
+.table-cel, .table-header {
+  padding: 1.5rem;
+}
+
+.table-link{
+  text-decoration: none;
+  transition: color 300ms ease-in-out;
+  color: #1c768f;
+}
+
+.table-link:hover {
+  color: #032539;
+}
+
+.btn-ordem {
+  border: none;
+  background-color: #032539;
+  color: #ffffff;
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-ordem:hover {
+  color: #f4f4f9;
+  background-color: #1c768f;
+}
+
+.form-wrapper{
+  max-width: 60rem;
+  margin: 1.5rem auto;
+}
+
+h2 {
+  color: #01a5b1;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 800;
+}
+
+.form-content{
+  margin: 1.5rem auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}
+
+.form-group p {
+  margin: 1em 0;
+}
+
+.form-group .help-text,
+.form-group .help-text ~ ul {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #000;
+}
+
+.form-group label {
+  font-size: 1.4rem;
+}
+
+.form-btn {
+  max-width: 60rem;
+  margin: 1.5rem;
+}
+
+.form-group-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-send {
+  background-color: #032539;
+  color: #f4f4f9;
+  font-weight: bold;
+  padding: .8rem 1.5rem;
+  margin: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: filter 300ms ease-in-out;
+}
+
+.btn-send:hover {
+  filter: brightness(90%);
+}
+
+.btn-send:focus,
+.btn-send:active {
+  filter: brightness(80%);
+  box-shadow: 0 0 5px #000;
+}

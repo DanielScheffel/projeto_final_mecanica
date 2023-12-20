@@ -1,0 +1,40 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="response-table">
+        <div class="table-title">
+            <h1 class="title">Clientes</h1>
+
+            <button type="button" href="{% url "cliente:create" %}" class="btn-ordem">Adicionar Cliente</button>
+        </div>
+
+        <table class="oficina-table">
+
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Nome</th>
+                    <th class="table-header">Sobrenome</th>
+                    <th class="table-header">Telefone</th>
+                    <th class="table-header">Endereço</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for cliente in clientes %}
+
+                <tr class="table-row">
+                    <td class="table-cel">
+                        <a href="#" class="table-link">{{ cliente.id }}</a>
+                    </td>
+                    <td class="table-cel"> {{ cliente.nome }} </td>
+                    <td class="table-cel"> {{ cliente.sobrenome }} </td>
+                    <td class="table-cel"> {{ cliente.telefone }} </td>
+                    <td class="table-cel"> {{ cliente.endereco }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock content %}

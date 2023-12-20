@@ -1,5 +1,39 @@
 {% extends "global/base.html" %}
 
 {% block content %}
+    <div class="response-table">
+        <div class="table-title">
+            <h1 class="title">Ordens de Serviços</h1>
 
-{% endblock %}
+            <button type="button" class="btn-ordem">Adicionar Ordem</button>
+        </div>
+
+        <table class="oficina-table">
+
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Placa</th>
+                    <th class="table-header">Descrição</th>
+                    <th class="table-header">Equipe</th>
+                    <th class="table-header">Serviço</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr class="table-row">
+                    <td class="table-cel">
+                        <a href="#" class="table-link">1</a>
+                    </td>
+                    <td class="table-cel">WEK313D</td>
+                    <td class="table-cel">Trocar o óleo do veículo</td>
+                    <td class="table-cel">Maneiros</td>
+                    <td class="table-cel">Troca de Óleo</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+{% endblock content %}
