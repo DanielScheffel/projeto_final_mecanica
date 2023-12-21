@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from cliente.forms import ClienteForm
-from cliente.models import Cliente, Veiculo
+from cliente.models import Cliente
 
 def registerCliente(request):
     form_action = reverse('cliente:create')

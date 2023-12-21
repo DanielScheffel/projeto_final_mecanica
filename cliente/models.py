@@ -1,8 +1,5 @@
 from django.db import models
 
-
-from django.db import models
-
 class Cliente(models.Model):
     nome = models.CharField(max_length=50)
     sobrenome = models.CharField(max_length=50, blank=True)
@@ -21,7 +18,7 @@ class Veiculo(models.Model):
     modelo = models.CharField(max_length=50)
     chassi = models.CharField(max_length=50)
     descricao = models.CharField(max_length=254, blank=True)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True)
 
     def __str__(self) -> str:
         return self.placa
