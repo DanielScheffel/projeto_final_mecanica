@@ -18,24 +18,24 @@
         {% endfor %}
 
         <div class="cliente-links">
-            <button type="button" class="btn-update">
-                <a class="btn-link" href="{% url "cliente:update" cliente.id %}">Atualizar Cliente</a>
-            </button>
-            <button type="button" class="btn-update">
-                <a class="btn-link" href="#">Atualizar Veículo</a>
-            </button>
-            <button type="button" class="btn-volta">
-                <a class="btn-link" href="{% url "cliente:cliente" %}">Voltar</a>
-            </button>
+            <a href="{% url "cliente:update" cliente.id %}" type="button" class="btn-update">
+                Atualizar Cliente
+            </a>
+            <a href="{% url "cliente:createVeiculo" %}" type="button" class="btn-update">
+                Cadastrar Veículo
+            </a>
+            <a href="{% url "cliente:cliente" %}" type="button" class="btn-update">
+                Voltar
+            </a>
 
             <form action="{% url "cliente:delete" cliente.id %}" method="POST">
                 {% csrf_token %}
 
                 {% if confirmation == 'no' %}
                 <input type="hidden" name="confirmation" value="yes" />
-                <button class="btn-link btn-delete" type="submit">Confirma?</button>
+                <button class="btn-delete" type="submit">Confirma?</button>
                 {% else %}
-                <button class="btn-link btn-delete" type="submit">Delete</button>
+                <button class="btn-delete" type="submit">Delete</button>
                 {% endif %}
             
             </form>

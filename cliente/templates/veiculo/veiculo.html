@@ -30,7 +30,7 @@
 
                 <tr class="table-row">
                     <td class="table-cel">
-                        <a href="" class="table-link">{{ veiculo.id }}</a>
+                        <a href="{% url "cliente:updateVeiculo" veiculo.id %}" class="table-link">{{ veiculo.id }}</a>
                     </td>
                     <td class="table-cel"> {{ veiculo.placa }} </td>
                     <td class="table-cel"> {{ veiculo.modelo }} </td>

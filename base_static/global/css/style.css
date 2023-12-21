@@ -226,11 +226,10 @@ h2 {
   border: none;
   background-color: #032539;
   border-radius: 4px;
-}
-
-.btn-link{
-  text-decoration: none;
   color: #f4f4f9;
+  text-align: center;
+  padding: .3rem;
+  text-decoration: none;
 }
 
 .btn-update:hover {
@@ -241,22 +240,24 @@ h2 {
   width: 15rem;
   height: 35px;
   border: none;
-  background-color: #1c768f;
+  background-color: #032539;
   border-radius: 4px;
+  color: #f4f4f9;
 }
 
 .btn-volta:hover {
-  background-color: #032539;
+  background-color: #1c768f;
 }
 
 .btn-delete {
-  background: tomato;
+  background: #032539;
   width: 15rem;
   height: 35px;
   border: none;
   border-radius: 4px;
+  color: #f4f4f9;
 }
 
 .btn-delete:hover {
-  background: rgb(228, 65, 37);
+  background: rgba(218, 2, 2);
 }
