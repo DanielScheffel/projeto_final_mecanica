@@ -7,5 +7,12 @@ class PecaForm(forms.ModelForm):
     class Meta:
         model = models.Peca
         fields = (
-            'nome_peca', 'quantidade', 'valor',
+            'nome_peca', 'estoque', 'valor',
+        )
+
+class ServicoForm(forms.ModelForm):
+    class Meta:
+        model = models.Servico
+        fields = (
+            'nome_servico', 'descricao', 'valor',
         )

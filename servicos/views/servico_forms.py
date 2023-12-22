@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from servicos.forms import PecaForm
-from servicos.models import Peca
+from servicos.forms import ServicoForm
+from servicos.models import Servico
 
-def registerPeca(request):
-    form_action = reverse('servicos:createPeca')
+
+def resgisterServico(request):
+    form_action = reverse('servicos:createServico')
     if request.method == 'POST':
-        form = PecaForm(request.POST)
+        form = ServicoForm(request.POST)
 
         context = {
             'form': form,
@@ -14,31 +15,31 @@ def registerPeca(request):
         }
 
         if form.is_valid():
-            peca = form.save()
-            return redirect('servicos:pecas')
+            servico = form.save()
+            return redirect('servicos:servicos')
         
         return render(
             request,
-            'pecas/peca_create.html',
+            'servicos/servico_create.html',
             context
         )
-        
+    
     context = {
-        'form': PecaForm(),
+        'form': ServicoForm(),
         'form_action': form_action
     }
 
     return render(
         request,
-        'pecas/peca_create.html',
+        'servicos/servico_create.html',
         context
     )
 
-def updatePeca(request, peca_id):
-    peca = get_object_or_404(Peca, pk=peca_id)
-    form_action = reverse('servicos:updatePeca', args=(peca_id,))
+def updateServico(request, servico_id):
+    servico = get_object_or_404(Servico, pk=servico_id)
+    form_action = reverse('servicos:updateServico', args=(servico_id,))
     if request.method == 'POST':
-        form = PecaForm(request.POST, instance=peca)
+        form = ServicoForm(request.POST, instance=servico)
 
         context = {
             'form': form,
@@ -47,21 +48,21 @@ def updatePeca(request, peca_id):
 
         if form.is_valid():
             form.save()
-            return redirect('servicos:pecas')
+            return redirect('servicos:servicos')
         
         return render(
             request,
-            'pecas/peca_create.html',
+            'servicos/servico_create.html',
             context
         )
     
     context = {
-        'form': PecaForm(instance=peca),
+        'form': ServicoForm(instance=servico),
         'form_action': form_action
     }
 
     return render(
         request,
-        'pecas/peca_create.html',
+        'servicos/servico_create.html',
         context
     )
