@@ -1,0 +1,40 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="response-table">
+        <div class="table-title">
+            <h1 class="title">Equipes</h1>
+
+            <button type="button" class="btn-ordem">
+                <a class="add-link" href="{% url "funcionarios:createFunc" %}">
+                    Adicionar Equipe
+                </a>
+            </button>
+        </div>
+
+        <table class="oficina-table">
+
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Nome Equipe</th>
+                    <th class="table-header">Especialidade</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for equipe in equipes %}
+
+                <tr class="table-row">
+                    <td class="table-cel">
+                        <a href="{% url "funcionarios:updateEquipe" equipe.id %}" class="table-link">{{ equipe.id }}</a>
+                    </td>
+                    <td class="table-cel"> {{ equipe.nome_equipe }} </td>
+                    <td class="table-cel"> {{ equipe.especialidade }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+
+    <div class="cliente">
+        <h1 class="cliente-name">
+            {{ cliente.nome }} {{ cliente.sobrenome }}
+        </h1>
+
+        <p><b>ID:</b> {{ cliente.id }}</p>
+        <p><b>Telefone:</b> {{ cliente.telefone }}</p>
+        <p><b>Endereço:</b> {{ cliente.endereco }}</p>
+        {% for veiculo in veiculos %}
+            <p><b>Placa:</b> {{ veiculo.placa }}</p>
+            <p><b>Modelo:</b> {{ veiculo.modelo }}</p>
+            <p><b>Chassi:</b> {{ veiculo.chassi }}</p>
+            <p><b>Descrição:</b> {{ veiculo.descricao }}</p>
+        {% endfor %}
+
+        <div class="cliente-links">
+            <a href="{% url "cliente:update" cliente.id %}" type="button" class="btn-update">
+                Atualizar Cliente
+            </a>
+            <a href="{% url "cliente:createVeiculo" %}" type="button" class="btn-update">
+                Cadastrar Veículo
+            </a>
+            <a href="{% url "cliente:cliente" %}" type="button" class="btn-update">
+                Voltar
+            </a>
+
+            <form action="{% url "cliente:delete" cliente.id %}" method="POST">
+                {% csrf_token %}
+
+                {% if confirmation == 'no' %}
+                <input type="hidden" name="confirmation" value="yes" />
+                <button class="btn-delete" type="submit">Confirma?</button>
+                {% else %}
+                <button class="btn-delete" type="submit">Delete</button>
+                {% endif %}
+            
+            </form>
+        </div>
+
+    </div>
+
+{% endblock content %}
