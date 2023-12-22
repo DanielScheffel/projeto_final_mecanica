@@ -1,3 +1,14 @@
 from django.db import models
+from cliente.models import Cliente, Veiculo
+from equipe.models import Equipe
+from servicos.models import Servico, Peca
 
-# Create your models here.
+class OrdemServico(models.Model):
+    veiculo = models.ForeignKey(Veiculo, on_delete=models.SET_NULL, null=True)
+    descricao = models.TextField(max_length=254)
+    data_inicio = models.DateField()
+    data_entrega = models.DateField(null=True)
+    equipe = models.ForeignKey(Equipe, on_delete=models.SET_NULL, null=True)
+    servico = models.ForeignKey(Servico, on_delete=models.SET_NULL, null=True)
+    pecas = models.ForeignKey(Peca, on_delete=models.SET_NULL, null=True)
+    valor_final = models.DecimalField(decimal_places=2, max_digits=8, null=True)

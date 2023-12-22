@@ -7,9 +7,6 @@ def welcome(request):
         'cliente/welcome.html',
     )
 
-def home(request):
-    return render(request, "cliente/home.html")
-
 def cliente(request):
     clientes = Cliente.objects \
         .all().order_by('-id')
