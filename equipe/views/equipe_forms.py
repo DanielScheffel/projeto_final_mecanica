@@ -66,3 +66,22 @@ def updateEquipe(request, equipe_id):
         context
     )
 
+def deleteEquipe(request, equipe_id):
+    equipe = get_object_or_404(
+        Equipe, pk=equipe_id
+    )
+
+    confirmation = request.POST.get('confirmation', 'no')
+
+    if confirmation == 'yes':
+        equipe.delete()
+        return redirect('funcionarios:equipe')
+    
+    return render(
+        request,
+        'funcionarios/equipe_detail.html',
+        {
+            'equipe': equipe,
+            'confirmation': confirmation
+        }
+    )

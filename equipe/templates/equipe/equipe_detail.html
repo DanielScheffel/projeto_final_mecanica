@@ -4,31 +4,24 @@
 
     <div class="cliente">
         <h1 class="cliente-name">
-            {{ cliente.nome }} {{ cliente.sobrenome }}
+            {{ equipe.nome_equipe }}
         </h1>
 
-        <p><b>ID:</b> {{ cliente.id }}</p>
-        <p><b>Telefone:</b> {{ cliente.telefone }}</p>
-        <p><b>Endereço:</b> {{ cliente.endereco }}</p>
-        {% for veiculo in veiculos %}
-            <p><b>Placa:</b> {{ veiculo.placa }}</p>
-            <p><b>Modelo:</b> {{ veiculo.modelo }}</p>
-            <p><b>Chassi:</b> {{ veiculo.chassi }}</p>
-            <p><b>Descrição:</b> {{ veiculo.descricao }}</p>
+        <p><b>ID:</b> {{ equipe.id }}</p>
+        <p><b>Especialidade:</b> {{ equipe.especialidade }}</p>
+        {% for funcionario in funcionarios %}
+            <p><b>Nome:</b><a class="link-func"> {{ funcionario.nome }} {{ funcionario.sobrenome }} </a></p>
         {% endfor %}
 
         <div class="cliente-links">
-            <a href="{% url "cliente:update" cliente.id %}" type="button" class="btn-update">
-                Atualizar Cliente
+            <a href="{% url "funcionarios:updateEquipe" equipe.id %}" type="button" class="btn-update">
+                Atualizar Equipe
             </a>
-            <a href="{% url "cliente:createVeiculo" %}" type="button" class="btn-update">
-                Cadastrar Veículo
-            </a>
-            <a href="{% url "cliente:cliente" %}" type="button" class="btn-update">
+            <a href="{% url "funcionarios:equipe" %}" type="button" class="btn-update">
                 Voltar
             </a>
 
-            <form action="{% url "cliente:delete" cliente.id %}" method="POST">
+            <form action="{% url "funcionarios:deleteEquipe" equipe.id %}" method="POST">
                 {% csrf_token %}
 
                 {% if confirmation == 'no' %}

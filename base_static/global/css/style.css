@@ -265,3 +265,8 @@ h2 {
 .btn-delete:hover {
   background: rgba(218, 2, 2);
 }
+
+.link-func{
+  text-decoration: none;
+  color: #000;
+}

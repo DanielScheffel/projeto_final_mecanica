@@ -51,7 +51,7 @@ def updateFuncionario(request, funcionario_id):
         
         return render(
             request,
-            'equipe/func_create.html',
+            'funcionarios/func_create.html',
             context
         )
     
@@ -62,6 +62,26 @@ def updateFuncionario(request, funcionario_id):
 
     return render(
         request,
-        'equipe/Func_create.html',
+        'funcionarios/func_create.html',
         context
+    )
+
+def deleteFunc(request, funcionario_id):
+    funcionario = get_object_or_404(
+        Funcionario, pk=funcionario_id
+    )
+
+    confirmation = request.POST.get('confirmation', 'no')
+
+    if confirmation == 'yes':
+        funcionario.delete()
+        return redirect('funcionarios:funcionario')
+    
+    return render(
+        request,
+        'funcionarios/func_detail.html',
+        {
+            'funcionario': funcionario,
+            'confirmation': confirmation
+        }
     )
