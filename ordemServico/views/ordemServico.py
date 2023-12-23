@@ -4,12 +4,19 @@ from ordemServico.forms import OrdemServicoForm
 from ordemServico.models import OrdemServico
 
 def home(request):
-    return render(request, "ordem/home.html")
+    ordens = OrdemServico.objects \
+        .all().order_by('-id')
+    
+    context = {
+        'ordens': ordens,
+        'site_title': 'Equipes - ',
+    }
+    return render(request, "ordem/home.html", context)
 
 def registerOrdem(request):
     form_action = reverse('ordem:createOrdem')
     if request.method == 'POST':
-        form = OrdemServico(request.POST)
+        form = OrdemServicoForm(request.POST)
 
         context = {
             'form': form,

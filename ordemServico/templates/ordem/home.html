@@ -25,17 +25,17 @@
             </thead>
 
             <tbody>
-
+                {% for ordem in ordens %}
                 <tr class="table-row">
                     <td class="table-cel">
-                        <a href="#" class="table-link">1</a>
+                        <a href="#" class="table-link"> {{ ordem.id }}</a>
                     </td>
-                    <td class="table-cel">WEK313D</td>
-                    <td class="table-cel">Trocar o óleo do veículo</td>
-                    <td class="table-cel">Maneiros</td>
-                    <td class="table-cel">Troca de Óleo</td>
+                    <td class="table-cel">{{ ordem.veiculo }}</td>
+                    <td class="table-cel">{{ ordem.descricao }}</td>
+                    <td class="table-cel"> {{ ordem.equipe }} </td>
+                    <td class="table-cel"> {{ ordem.valor_final }} </td>
                 </tr>
-
+                {% endfor %}
             </tbody>
 
         </table>

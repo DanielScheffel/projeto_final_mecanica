@@ -6,7 +6,7 @@ app_name = 'cliente'
 urlpatterns = [
 
     # listagem
-    path('', views.welcome, name='welcome'),
+    # path('', views.welcome, name='welcome'),
     path('lista/cliente/', views.cliente, name='cliente'),
     path('lista/veiculo/', views.veiculo, name='veiculo'),
 

@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from cliente.models import Cliente, Veiculo
 
-def welcome(request):
-    return render(
-        request,
-        'cliente/welcome.html',
-    )
+# def welcome(request):
+#     return render(
+#         request,
+#         'cliente/welcome.html',
+#     )
 
 def cliente(request):
     clientes = Cliente.objects \
