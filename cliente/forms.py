@@ -48,3 +48,17 @@ class VeiculoForm(forms.ModelForm):
         fields = (
             'placa', 'modelo', 'chassi', 'descricao', 'cliente'
         )
+
+        def clean(self):
+            cleaned_data = self.cleaned_data
+            placa = cleaned_data.get('placa')
+
+            if placa and any(letra.islower() for letra in placa):
+                msg = ValidationError(
+                    'A placa não pode receber letras minusculas',
+                    code='invalid'
+                )
+
+                self.add_error('placa', msg)
+
+            return placa

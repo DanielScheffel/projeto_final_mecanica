@@ -1,0 +1,42 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+
+    <div class="cliente">
+        <h1 class="cliente-name">
+            Placa Veículo: {{ veiculo.placa }}
+        </h1>
+
+        <p><b>ID:</b> {{ ordem.id }}</p>
+        <p><b>Modelo:</b> {{ ordem.veiculo.modelo }}</p>
+        <p><b>Cliente:</b> {{ ordem.veiculo.cliente }}</p>
+        <p><b>Descrição:</b> {{ ordem.descricao }}</p>
+        <p><b>Equipe:</b> {{ ordem.equipe }}</p>
+
+        <div class="cliente-links">
+            <a href="{% url "ordem:updateOrdem" ordem.id %}" type="button" class="btn-update">
+                Atualizar Ordem de Serviço
+            </a>
+            <a href="{% url "cliente:createVeiculo" %}" type="button" class="btn-update">
+                Concluir Ordem
+            </a>
+            <a href="{% url "ordem:home" %}" type="button" class="btn-update">
+                Voltar
+            </a>
+
+            <form action="{% url "ordem:deleteOrdem" ordem.id %}" method="POST">
+                {% csrf_token %}
+
+                {% if confirmation == 'no' %}
+                <input type="hidden" name="confirmation" value="yes" />
+                <button class="btn-delete" type="submit">Confirma?</button>
+                {% else %}
+                <button class="btn-delete" type="submit">Delete</button>
+                {% endif %}
+            
+            </form>"
+        </div>
+
+    </div>
+
+{% endblock content %}

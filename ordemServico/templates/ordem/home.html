@@ -20,7 +20,6 @@
                     <th class="table-header">Placa</th>
                     <th class="table-header">Descrição</th>
                     <th class="table-header">Equipe</th>
-                    <th class="table-header">Serviço</th>
                 </tr>
             </thead>
 
@@ -28,12 +27,11 @@
                 {% for ordem in ordens %}
                 <tr class="table-row">
                     <td class="table-cel">
-                        <a href="#" class="table-link"> {{ ordem.id }}</a>
+                        <a href="{% url 'ordem:detailOrdem' ordem.id %}" class="table-link"> {{ ordem.id }}</a>
                     </td>
                     <td class="table-cel">{{ ordem.veiculo }}</td>
                     <td class="table-cel">{{ ordem.descricao }}</td>
                     <td class="table-cel"> {{ ordem.equipe }} </td>
-                    <td class="table-cel"> {{ ordem.valor_final }} </td>
                 </tr>
                 {% endfor %}
             </tbody>

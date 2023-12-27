@@ -15,7 +15,7 @@ def registerVeiculo(request):
 
         if form.is_valid():
             veiculo = form.save()
-            return redirect('cliente:veiculo', veiculo_id=veiculo.pk)
+            return redirect('cliente:veiculo')
         
         return render(
             request,
