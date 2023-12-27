@@ -29,8 +29,9 @@ SECRET_KEY = 'django-insecure-f3p5q#)(k*ul&2%496^hsv=cj*v8(gd6yh^+z80!$^q_%v%x3p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['oficina-mecanica-cr3a.onrender.com']
 
+CRSF_TRUSTED_ORIGINS = ['https://oficina-mecanica-cr3a.onrender.com']
 
 # Application definition
 
@@ -85,8 +86,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'database_oficina',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES',
+        },
     }
 }
 

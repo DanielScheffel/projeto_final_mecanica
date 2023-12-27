@@ -5,7 +5,7 @@ FROM python:3.8
 WORKDIR /usr/src/app
 
 # Instale as dependências
-RUN pip install Django==3.2.7 psycopg2-binary==2.9.9
+RUN pip install Django==3.2.7 psycopg2-binary==2.9.9 dj-database-url==2.1.0
 
 # Copie o código do aplicativo para o container
 COPY . .
