@@ -12,12 +12,14 @@
         <p><b>Cliente:</b> {{ ordem.veiculo.cliente }}</p>
         <p><b>Descrição:</b> {{ ordem.descricao }}</p>
         <p><b>Equipe:</b> {{ ordem.equipe }}</p>
+        <p><b>Peça:</b> {{ ordem.peca }}</p>
+        <p><b>Serviço:</b> {{ ordem.servico }}</p>
 
         <div class="cliente-links">
             <a href="{% url "ordem:updateOrdem" ordem.id %}" type="button" class="btn-update">
                 Atualizar Ordem de Serviço
             </a>
-            <a href="{% url "cliente:createVeiculo" %}" type="button" class="btn-update">
+            <a href="{% url "ordem:createOrdem" %}" type="button" class="btn-update">
                 Concluir Ordem
             </a>
             <a href="{% url "ordem:home" %}" type="button" class="btn-update">
